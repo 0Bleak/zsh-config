@@ -1,18 +1,14 @@
-# Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Oh My Zsh path and settings
 export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
 export EDITOR='nano'
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
-# Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Plugins
 plugins=(
   git
   zsh-autosuggestions
@@ -25,7 +21,6 @@ plugins=(
   fzf
 )
 
-# History settings
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
@@ -33,12 +28,10 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
-# Completion settings
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -49,7 +42,6 @@ alias r='ranger'
 alias e='nano'
 alias cls='clear'
 
-# Git aliases
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
@@ -62,7 +54,6 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias i='whoami && pwd'
 
-# Docker aliases
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dps='docker ps'
@@ -70,7 +61,6 @@ alias di='docker images'
 alias dr='docker run'
 alias dbash='docker exec -it'
 
-# Functions
 function myip() {
   echo "Fetching IP addresses..."
   for iface in $(ifconfig | cut -d' ' -f1 | tr ':' '\n' | awk NF); do
@@ -144,34 +134,26 @@ function filesize() {
     echo "$1 is not a valid file"
   fi
 }
-
-# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Load syntax highlighting and autosuggestions
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Load Powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=0
 POWERLEVEL9K_DIR_ABSOLUTE_PATH=true
-echo -ne '\e[6 q'  # Set cursor style to beam
+echo -ne '\e[6 q' 
 
-# Node.js (NVM)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 
 
-# Set FZF installation directory
 export FZF_BASE="$HOME/.fzf"
 [ -f "$FZF_BASE/bin/fzf" ] && source "$FZF_BASE/shell/completion.zsh" && source "$FZF_BASE/shell/key-bindings.zsh"
 
-# FZF Key Bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Custom PS1 Prompt
 PROMPT='%F{blue}%n@%m%f %F{green}%~%f %# '
 export PATH=$PATH:/home/bleak/go/bin
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
