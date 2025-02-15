@@ -16,7 +16,7 @@ This repository contains my customized Zsh configuration with powerlevel10k, use
    install ouh my zsh
    \`\`\`
 2. Clone this repository:
-   \`\`\`sh
+   \`\`\`
    git clone https://github.com/0Bleak/zsh-config.git ~/.zsh-config
    \`\`\`
 3. Symlink the configuration:
@@ -24,7 +24,7 @@ This repository contains my customized Zsh configuration with powerlevel10k, use
    ln -s ~/.zsh-config/.zshrc ~/.zshrc
    \`\`\`
 4. Restart Zsh:
-   \`\`\`sh
+   \`\`\`
    exec zsh
    \`\`\`
 
