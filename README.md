@@ -13,7 +13,7 @@ This repository contains my customized Zsh configuration with powerlevel10k, use
 1. Install Zsh and Oh My Zsh:
    \`\`\`sh
    sudo apt install zsh -y
-   sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"
+   install ouh my zsh
    \`\`\`
 2. Clone this repository:
    \`\`\`sh
